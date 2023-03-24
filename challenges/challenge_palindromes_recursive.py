@@ -15,6 +15,3 @@ def is_palindrome_recursive(word: str, low_index: int = 0, high_index:int = None
         return False
     
     return is_palindrome_recursive(word, low_index + 1, high_index -1)
-    
-
-print(is_palindrome_recursive("marrocos e socorram"))
