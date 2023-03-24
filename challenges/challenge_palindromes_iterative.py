@@ -1,9 +1,13 @@
 def is_palindrome_iterative(word):
-    word = word.lower().replace(" ", "")
+    if not word:
+        return False
+
+    word = word.lower()
+    word = word.replace(" ", "")
 
     reversed_word = word[::-1]
 
-    if word == reversed_word and not len(word) == 0:
-        return True
-    else:
+    if word != reversed_word:
         return False
+
+    return True
