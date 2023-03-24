@@ -28,9 +28,12 @@ def merge(numbers, start, mid, end):
     else:
         numbers[general_index:end] = left[left_index:]
 
-# é possível resolver o requisito sem ordenar os elementos (inclusive é bem mais rápido) pra os casos de testes do avaliador
+# é possível resolver o requisito sem ordenar os elementos
+# (inclusive é bem mais rápido) pra os casos de testes do avaliador
+
 
 def find_duplicate(nums: list[int]):
+
     if not isinstance(nums, list) or not all(
         isinstance(n, int) and n >= 0 for n in nums
     ):
@@ -41,9 +44,8 @@ def find_duplicate(nums: list[int]):
 
     ordered_list = merge_sort(nums)
 
-
     repeated = set()
-    
+
     for n in ordered_list:
         if n in repeated:
             return n
