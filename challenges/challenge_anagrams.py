@@ -34,7 +34,6 @@ def merge(numbers, start, mid, end):
             right_index = right_index + 1
 
 
-
 def is_anagram(first_string: str, second_string: str):
     if not first_string and not second_string:
         return (first_string, second_string, False)
@@ -49,11 +48,3 @@ def is_anagram(first_string: str, second_string: str):
         return (str1_sorted, str2_sorted, True)
     else:
         return (str1_sorted, str2_sorted, False)
-
-
-    
-
-print(is_anagram("Silent", "Listen"))
-
-
-# print(len(''.join("Batata")))
