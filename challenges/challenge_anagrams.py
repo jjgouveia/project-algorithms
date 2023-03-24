@@ -15,7 +15,6 @@ def counting_sort(word: str):
 def is_anagram(first_string: str, second_string: str):
     if not first_string and not second_string:
         return (first_string, second_string, False)
-    
 
     first_string = first_string.lower().replace(" ", "")
     second_string = second_string.lower().replace(" ", "")
