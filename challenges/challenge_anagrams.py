@@ -1,37 +1,15 @@
 
-def merge_sort(numbers, start=0, end=None):
-    if end is None:
-        end = len(numbers)
-    if (end - start) > 1:
-        mid = (start + end) // 2
-        merge_sort(numbers, start, mid)
-        merge_sort(numbers, mid, end)
-        merge(numbers, start, mid, end)
+def counting_sort(word: str):
+    count = {}
 
-    return ''.join(numbers)
+    for character in word:
+        count[character] = count.get(character, 0) + 1
 
+    result = ''
+    for character in 'abcdefghijklmnopqrstuvwxyz':
+        result += character * count.get(character, 0)
 
-def merge(numbers, start, mid, end):
-    left = numbers[start:mid]
-    right = numbers[mid:end]
-    left_len = len(left)
-    right_len = len(right)
-
-    left_index, right_index = 0, 0
-
-    for general_index in range(start, end):
-        if left_index >= left_len:
-            numbers[general_index] = right[right_index]
-            right_index = right_index + 1
-        elif right_index >= right_len:
-            numbers[general_index] = left[left_index]
-            left_index = left_index + 1
-        elif left[left_index] < right[right_index]:
-            numbers[general_index] = left[left_index]
-            left_index = left_index + 1
-        else:
-            numbers[general_index] = right[right_index]
-            right_index = right_index + 1
+    return result
 
 
 def is_anagram(first_string: str, second_string: str):
@@ -41,8 +19,8 @@ def is_anagram(first_string: str, second_string: str):
     first_string = first_string.lower()
     second_string = second_string.lower()
 
-    str1_sorted = merge_sort(list(first_string))
-    str2_sorted = merge_sort(list(second_string))
+    str1_sorted = counting_sort(first_string)
+    str2_sorted = counting_sort(second_string)
 
     if str1_sorted == str2_sorted:
         return (str1_sorted, str2_sorted, True)
