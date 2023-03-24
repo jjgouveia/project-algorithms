@@ -1,15 +1,18 @@
 
-def counting_sort(word: str):
-    count = {}
+def counting_sort(string):
+    char_count = [0] * 256
+    for char in string:
+        char_count[ord(char)] += 1
 
-    for character in word:
-        count[character] = count.get(character, 0) + 1
+    for i in range(1, 256):
+        char_count[i] += char_count[i-1]
 
-    result = ''
-    for character in 'abcdefghijklmnopqrstuvwxyz':
-        result += character * count.get(character, 0)
+    result = [None] * len(string)
+    for char in string:
+        result[char_count[ord(char)] - 1] = char
+        char_count[ord(char)] -= 1
 
-    return result
+    return ''.join(result)
 
 
 def is_anagram(first_string: str, second_string: str):
