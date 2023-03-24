@@ -1,4 +1,3 @@
-
 def merge_sort(numbers, start=0, end=None):
     if end is None:
         end = len(numbers)
@@ -28,18 +27,20 @@ def merge(numbers, start, mid, end):
     else:
         numbers[general_index:end] = left[left_index:]
 
+
 # é possível resolver o requisito sem ordenar os elementos
 # (inclusive é bem mais rápido) pra os casos de testes do avaliador
 
 
-def find_duplicate(nums: list[int]):
-
-    if not isinstance(nums, list) or not all(
-        isinstance(n, int) and n >= 0 for n in nums
-    ):
+def rule_set(nums):
+    if not isinstance(nums, list) or len(nums) <= 1:
         return False
 
-    if len(nums) <= 1:
+
+def find_duplicate(nums: list[int]):
+    rule_set(nums)
+
+    if not all(isinstance(n, int) and n >= 0 for n in nums):
         return False
 
     ordered_list = merge_sort(nums)
