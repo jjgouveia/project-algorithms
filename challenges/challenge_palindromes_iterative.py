@@ -10,6 +10,3 @@ def is_palindrome_iterative(word: str):
             return False
         
     return True
-
-
-print(is_palindrome_iterative("parap"))
